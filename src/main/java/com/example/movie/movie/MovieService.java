@@ -25,6 +25,11 @@ public class MovieService {
         return movieRepository.findAll();
     }
 
+
+    public Movie getMovie(Long movieId) {
+        return movieRepository.findMovieById(movieId);
+    }
+
     public void addNewMovie(Movie movie) {
         Optional<Movie> movieOptional = movieRepository.findMovieByTitle(movie.getTitle());
         if(movieOptional.isPresent()) {
@@ -58,4 +63,5 @@ public class MovieService {
         if(releaseDate != null && !Objects.equals(movie.getReleaseDate(), releaseDate))
             movie.setReleaseDate(releaseDate);
     }
+
 }

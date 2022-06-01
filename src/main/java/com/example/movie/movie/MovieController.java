@@ -22,6 +22,9 @@ public class MovieController {
         return movieService.getMovies();
     }
 
+    @GetMapping(path = "{movieId}")
+    public Movie getMovie(@PathVariable("movieId") Long movieId) { return movieService.getMovie(movieId); }
+
     @PostMapping
     public void registerNewMovie(@RequestBody Movie movie) { movieService.addNewMovie(movie); }
 
